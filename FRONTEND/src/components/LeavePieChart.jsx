@@ -14,23 +14,25 @@ const settings = {
  */
 export default function LeavePieChart(props) {
   return (
-    <div className="flex justify-center m-4 w-1/2 flex-col items-center scale-120">
-      <h3 className="text-xl font-bold text-gray-800 mt-8 mb-8">
+    <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto bg-white/50 rounded-xl p-4 md:p-6 shadow-sm border border-gray-100">
+      <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 text-center">
         Leave Distribution
       </h3>
 
       {/* Render MUI pie chart with donut styling */}
-      <PieChart
-        series={[
-          {
-            innerRadius: 40,
-            outerRadius: 100,
-            data: props.data,
-            arcLabel: "value",
-          },
-        ]}
-        {...settings}
-      />
+      <div className="flex justify-center w-full">
+        <PieChart
+          series={[
+            {
+              innerRadius: 50,
+              outerRadius: 100,
+              data: props.data,
+              arcLabel: "value",
+            },
+          ]}
+          {...settings}
+        />
+      </div>
     </div>
   );
 }

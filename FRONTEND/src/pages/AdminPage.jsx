@@ -3,7 +3,11 @@ import WelcomeSection from "../components/WelcomeSection";
 import CardsTab from "../components/CardsTab";
 import LeaveRequestTable from "../components/LeaveRequestTable";
 import { formatDate } from "../utils/dateFormatter";
-import { fetchAdminDashboard, approveLeave, rejectLeave } from "../services/adminService";
+import {
+  fetchAdminDashboard,
+  approveLeave,
+  rejectLeave,
+} from "../services/adminService";
 import { getUser } from "../utils/storage";
 /**
  * Admin dashboard view for managing global leave requests
@@ -77,18 +81,20 @@ const AdminPage = () => {
     }
   };
   return (
-    <div>
+    <div className="pb-10">
       <WelcomeSection
         name={user.fullName}
         message="Welcome back, Admin ! Here you can manage all leave requests."
       />
       <CardsTab title={title} value={stats} />
-      <LeaveRequestTable
-        columns={columns}
-        tableData={tableData}
-        onApprove={handleApprove}
-        onReject={handleReject}
-      />
+      <div className="px-4 md:px-10 mt-6 w-full mx-auto max-w-7xl">
+        <LeaveRequestTable
+          columns={columns}
+          tableData={tableData}
+          onApprove={handleApprove}
+          onReject={handleReject}
+        />
+      </div>
     </div>
   );
 };

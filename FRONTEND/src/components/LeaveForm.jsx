@@ -49,7 +49,7 @@ function LeaveForm() {
   };
 
   return (
-    <div className="p-6 w-full max-w-lg mx-auto mt-23 flex flex-col items-center" style={{background: "linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)"}}>
+    <div className="p-4 sm:p-6 w-full max-w-lg mx-auto mt-24 sm:mt-28 mb-8 flex flex-col items-center rounded-xl shadow-sm" style={{background: "linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)"}}>
       <h1 className="text-2xl font-bold text-gray-800 mb-5 ">Leave Form</h1>
       <div className="rounded-xl shadow-md p-6 w-full max-w-md mx-auto" style={{background: "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)"}}>
         <h2 className="text-xl font-semibold text-gray-800 mb-5">
@@ -82,20 +82,26 @@ function LeaveForm() {
             </label>
 
             {/* Date range pickers */}
-            <div className="grid grid-cols-2 gap-3">
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <span className="text-xs text-gray-500 mb-1 block">Start Date</span>
+                <input
+                  type="date"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                />
+              </div>
 
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
+              <div>
+                <span className="text-xs text-gray-500 mb-1 block">End Date</span>
+                <input
+                  type="date"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                />
+              </div>
             </div>
           </div>
 

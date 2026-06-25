@@ -7,8 +7,7 @@ import StatCard from "./StatCard";
  */
 function CardsTab(props) {
   return (
-    <div className="flex flex-wrap justify-around mt-8 mb-8 mx-10">
-
+    <div className="my-8 mx-4 md:mx-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
       {/* Render individual cards for each stat */}
       <StatCard title={props.title[0]} value={props.value[0]} />
       <StatCard title={props.title[1]} value={props.value[1]} />

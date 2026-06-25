@@ -13,14 +13,14 @@ const LeaveHistoryTable = (props) => {
   };
   return (
     <div
-      className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col ml-20"
+      className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col w-full"
       style={{
         background: "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
       }}
     >
-      <div className="overflow-x-auto ">
-        <table className="text-sm w-full">
-          <thead className="bg-gray-200 w-full">
+      <div className="overflow-x-auto w-full">
+        <table className="text-sm w-full min-w-max">
+          <thead className="bg-gray-200/50 w-full border-b border-gray-300">
             <tr>
               {/* Render table headers dynamically */}
               {props.columns.map((column) => (
@@ -33,7 +33,7 @@ const LeaveHistoryTable = (props) => {
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
+          <tbody className="divide-y divide-gray-200/50">
             {/* Handle empty data state */}
             {props.tableData.length === 0 ? (
               <tr>
@@ -46,13 +46,13 @@ const LeaveHistoryTable = (props) => {
               </tr>
             ) : (
               props.tableData.map((row, index) => (
-                <tr key={row._id || index}>
+                <tr key={row._id || index} className="hover:bg-white/40 transition-colors">
                   {props.columns.map((col) => (
-                    <td key={col.key} className="px-6 py-4 whitespace-nowrap">
+                    <td key={col.key} className="px-4 md:px-6 py-4 whitespace-nowrap">
                       {/* Render styled pill for status column */}
                       {col.key === "status" ? (
                         <span
-                          className={`px-3 py-1 rounded-full text-xs font-medium ${statusStyles[row.status]}`}
+                          className={`px-3 py-1 rounded-full text-xs font-bold ${statusStyles[row.status]}`}
                         >
                           {row.status}
                         </span>

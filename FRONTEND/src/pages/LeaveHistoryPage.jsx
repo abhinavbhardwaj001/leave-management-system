@@ -49,9 +49,9 @@ const LeaveHistoryPage = () => {
     }));
 
   return (
-    <div className="p-4 flex flex-col items-center mt-25 ">
+    <div className="p-4 md:p-8 flex flex-col items-center w-full max-w-6xl mx-auto mb-10 mt-25">
       {/* Main content wrapper */}
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Leave History</h2>
+      <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center w-full">Leave History</h2>
       <LeaveHistoryTable columns={columns} tableData={tableData} />
     </div>
   );

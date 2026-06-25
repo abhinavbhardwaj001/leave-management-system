@@ -97,7 +97,7 @@ const Dashboard = () => {
     }));
 
   return (
-    <div>
+    <div className="pb-10">
 
       {/* Top welcome banner with action routes */}
       <WelcomeSection
@@ -111,14 +111,16 @@ const Dashboard = () => {
       <CardsTab title={title} value={value} />
 
       {/* Bottom split view: Table and Chart */}
-      <div className="flex flex-row">
-        <div className="p-4 flex flex-col items-center w-full max-w-2xl">
-          <h2 className="text-2xl font-bold text-gray-800 mb-8">
+      <div className="flex flex-col lg:flex-row gap-8 px-4 md:px-10 mt-2 items-start">
+        <div className="w-full lg:w-2/3 flex flex-col">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 text-center lg:text-left">
             Recent Leaves
           </h2>
           <LeaveHistoryTable columns={columns} tableData={tableData} />
         </div>
-        <LeavePieChart data={pieChartData} />
+        <div className="w-full lg:w-1/3 flex justify-center mt-4 lg:mt-0">
+          <LeavePieChart data={pieChartData} />
+        </div>
       </div>
     </div>
   );
