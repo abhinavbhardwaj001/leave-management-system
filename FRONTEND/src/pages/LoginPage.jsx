@@ -9,7 +9,7 @@ import { getUser, setUser } from "../utils/storage";
 const LoginPage = () => {
   const navigate = useNavigate();
   const user = getUser();
-  
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -111,6 +111,19 @@ const LoginPage = () => {
               >
                 Sign in
               </button>
+              {/* Demo Credentials */}
+              <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-gray-700">
+                <p className="font-semibold text-blue-700 mb-2">
+                  Demo Credentials
+                </p>
+                <p>
+                  <span className="font-medium">Employee:</span> ankit /
+                  ankit123
+                </p>
+                <p>
+                  <span className="font-medium">Admin:</span> admin / admin123
+                </p>
+              </div>
             </form>
           </div>
         </div>
