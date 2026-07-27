@@ -74,7 +74,7 @@ const LoginPage = () => {
                   name="username"
                   id="username"
                   className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                  placeholder="enter username"
+                  placeholder="Enter username"
                   required=""
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -122,6 +122,9 @@ const LoginPage = () => {
                 </p>
                 <p>
                   <span className="font-medium">Admin:</span> admin / admin123
+                </p>
+                <p className="mt-2 text-center text-sm text-blue-700">
+                  Initial login may take up to a minute (Render Free Tier).
                 </p>
               </div>
             </form>
