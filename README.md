@@ -77,6 +77,8 @@ Leave Management System/
 │   ├── vercel.json
 │   └── package.json
 │
+|── screenshots/
+|
 └── README.md
 ```
 
