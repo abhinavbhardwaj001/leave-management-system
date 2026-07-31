@@ -13,10 +13,13 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     // Prevent default form submission
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
     try {
       // Authenticate user against the backend
@@ -34,6 +37,8 @@ const LoginPage = () => {
     } catch (error) {
       console.log(error);
       setError("Invalid username or password");
+    } finally {
+    setLoading(false);
     }
   };
 
@@ -107,9 +112,23 @@ const LoginPage = () => {
               )}
               <button
                 type="submit"
-                className="w-full text-white bg-blue-600 hover:bg-blue-700 font-medium rounded-lg text-sm px-5 py-3 text-center cursor-pointer active:scale-95 transition-transform"
+                disabled={loading}
+                className={`w-full text-white font-medium rounded-lg text-sm px-5 py-3 text-center transition-all duration-200
+                    ${
+                      loading
+                        ? "bg-blue-400 cursor-not-allowed"
+                        : "bg-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer"
+                    }`}
               >
-                Sign in
+              {loading ? (
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  <span>Signing in...</span>
+                </div>
+              ) : (
+                "Sign in"
+              )}
+
               </button>
               {/* Demo Credentials */}
               <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-gray-700">
