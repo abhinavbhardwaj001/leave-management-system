@@ -38,111 +38,153 @@ const LoginPage = () => {
       console.log(error);
       setError("Invalid username or password");
     } finally {
-    setLoading(false);
+      setLoading(false);
     }
   };
 
   return (
-    <section className="bg-gray-50 dark:bg-gray-900 min-h-screen">
+    <section className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <div
-        className="flex flex-col items-center justify-center px-4 py-8 mx-auto min-h-screen"
-        style={{
-          background:
-            "linear-gradient(to top, #d5d4d0 0%, #d5d4d0 1%, #eeeeec 31%, #efeeec 75%, #e9e9e7 100%)",
-        }}
+        className="flex flex-col items-center justify-center px-4 py-8 mx-auto min-h-screen
+           bg-gray-100 dark:bg-gray-900"
       >
-        <p className="flex items-center mb-8 text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white text-center">
+        <p
+          className="flex items-center mb-8 text-2xl sm:text-3xl font-bold
+                  text-gray-900 dark:text-white text-center"
+        >
           Leave Management System
         </p>
+
         <div
-          className="w-full max-w-md bg-white rounded-lg shadow dark:border dark:bg-gray-800 dark:border-gray-700"
-          style={{
-            background: "linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%)",
-          }}
+          className="w-full max-w-md rounded-lg shadow-lg
+                 bg-white dark:bg-gray-800
+                 dark:border dark:border-gray-700"
         >
           <div className="p-6 sm:p-10 space-y-4 md:space-y-6">
-            <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            <h1
+              className="text-xl font-bold leading-tight tracking-tight
+                       text-gray-900 md:text-2xl dark:text-white"
+            >
               Sign in to your account
             </h1>
+
             <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+              {/* Username */}
               <div>
                 <label
                   htmlFor="username"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium
+                         text-gray-900 dark:text-gray-200"
                 >
                   Username
                 </label>
 
-                {/* Username input */}
                 <input
                   type="text"
                   name="username"
                   id="username"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                  className="bg-gray-50 border border-gray-300 text-gray-900
+                         rounded-lg block w-full p-2.5
+                         focus:ring-blue-500 focus:border-blue-500
+                         dark:bg-gray-700 dark:border-gray-600
+                         dark:placeholder-gray-400 dark:text-white
+                         dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter username"
-                  required=""
+                  required
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                ></input>
+                />
               </div>
+
+              {/* Password */}
               <div>
                 <label
                   htmlFor="password"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium
+                         text-gray-900 dark:text-gray-200"
                 >
                   Password
                 </label>
 
-                {/* Password input */}
                 <input
                   type="password"
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
-                  required=""
+                  className="bg-gray-50 border border-gray-300 text-gray-900
+                         rounded-lg block w-full p-2.5
+                         focus:ring-blue-500 focus:border-blue-500
+                         dark:bg-gray-700 dark:border-gray-600
+                         dark:placeholder-gray-400 dark:text-white
+                         dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                ></input>
+                />
               </div>
 
-              {/* Show error message if login fails */}
+              {/* Error */}
               {error && (
-                <p className="text-sm text-red-500 font-medium">{error}</p>
+                <p className="text-sm text-red-500 dark:text-red-400 font-medium">
+                  {error}
+                </p>
               )}
+
+              {/* Sign In Button */}
               <button
                 type="submit"
                 disabled={loading}
-                className={`w-full text-white font-medium rounded-lg text-sm px-5 py-3 text-center transition-all duration-200
-                    ${
-                      loading
-                        ? "bg-blue-400 cursor-not-allowed"
-                        : "bg-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer"
-                    }`}
+                className={`w-full text-white font-medium rounded-lg text-sm
+                        px-5 py-3 text-center transition-all duration-200
+              ${
+                loading
+                  ? "bg-blue-400 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700 active:scale-95 cursor-pointer"
+              }`}
               >
-              {loading ? (
-                <div className="flex items-center justify-center gap-2">
-                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                  <span>Signing in...</span>
-                </div>
-              ) : (
-                "Sign in"
-              )}
-
+                {loading ? (
+                  <div className="flex items-center justify-center gap-2">
+                    <div
+                      className="w-5 h-5 border-2 border-white
+                                border-t-transparent rounded-full animate-spin"
+                    ></div>
+                    <span>Signing in...</span>
+                  </div>
+                ) : (
+                  "Sign in"
+                )}
               </button>
+
               {/* Demo Credentials */}
-              <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-3 text-sm text-gray-700">
-                <p className="font-semibold text-blue-700 mb-2">
+              <div
+                className="mt-4 rounded-lg border p-3 text-sm
+                       bg-blue-50 border-blue-200 text-gray-700
+                       dark:bg-gray-700/50
+                       dark:border-blue-800
+                       dark:text-gray-300"
+              >
+                <p className="font-semibold text-blue-700 dark:text-blue-400 mb-2">
                   Demo Credentials
                 </p>
+
                 <p>
-                  <span className="font-medium">Employee:</span> ankit /
-                  ankit123
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    Employee:
+                  </span>{" "}
+                  ankit / ankit123
                 </p>
+
                 <p>
-                  <span className="font-medium">Admin:</span> admin / admin123
+                  <span className="font-medium text-gray-900 dark:text-white">
+                    Admin:
+                  </span>{" "}
+                  admin / admin123
                 </p>
-                <p className="mt-2 text-center text-sm text-blue-700">
+
+                <p
+                  className="mt-2 text-center text-sm
+                          text-blue-700 dark:text-blue-400"
+                >
                   Initial login may take up to a minute (Render Free Tier).
                 </p>
               </div>
